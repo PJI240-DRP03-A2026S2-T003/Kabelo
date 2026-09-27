@@ -13,12 +13,8 @@ return new class extends Migration
             
             
             $table->string('nome');
-            $table->string('email')->unique()->nullable(); // Nullable caso existam clientes sem e-mail
+            $table->string('email')->unique()->nullable();
             $table->string('telefone')->nullable();
-            
-            
-            $table->string('cpf_cnpj')->unique()->nullable();
-            $table->string('endereco')->nullable();
             
             $table->timestamps();
         });
