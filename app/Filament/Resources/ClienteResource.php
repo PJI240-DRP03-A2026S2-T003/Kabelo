@@ -37,7 +37,6 @@ class ClienteResource extends Resource
                 Tables\Columns\TextColumn::make('nome')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('email')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('telefone')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('cpf_cnpj')->sortable()->searchable(),
             ])
             ->filters([
                 //

@@ -10,7 +10,5 @@ class Cliente extends Model
         'nome',
         'email',
         'telefone',
-        'cpf_cnpj',
-        'endereco',
     ];
 }
