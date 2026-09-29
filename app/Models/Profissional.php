@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Profissional extends Model
 {
@@ -17,5 +18,8 @@ class Profissional extends Model
         return $this->belongsToMany(Servico::class, 'profissional_servico');
     }
 
-    
+    public function horariosTrabalho(): HasMany
+    {
+        return $this->hasMany(HorarioTrabalho::class);
+    }
 }

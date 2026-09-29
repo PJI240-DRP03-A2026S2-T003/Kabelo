@@ -14,12 +14,17 @@ class Agendamento extends Model
         'data_hora',
         'status',
         'observacoes',
+        'data_hora_fim',
     ];
 
     // Converte o campo data_hora automaticamente em um objeto Carbon (Data do PHP)
-    protected $casts = [
-        'data_hora' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'data_hora' => 'datetime',
+            'data_hora_fim' => 'datetime',
+        ];
+    }
 
     public function cliente(): BelongsTo
     {

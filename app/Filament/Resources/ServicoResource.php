@@ -34,12 +34,15 @@ class ServicoResource extends Resource
                 ->prefix('R$')
                 ->placeholder('0,00'),
 
-            Forms\Components\TextInput::make('duracao_minutos')
+            Forms\Components\Select::make('duracao_minutos')
                 ->label('Duração (em minutos)')
-                ->numeric()
-                ->required()
-                ->default(30)
-                ->suffix(' min'),
+                ->options(
+                    collect(range(15, 480, 15))
+                        ->mapWithKeys(fn ($m) => [
+                            $m => intdiv($m, 60) . 'h' . str_pad($m % 60, 2, '0', STR_PAD_LEFT),
+                        ])
+                )
+                ->required(),
 
             Forms\Components\Toggle::make('is_ativo')
                 ->label('Serviço Ativo')
