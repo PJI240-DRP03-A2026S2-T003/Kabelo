@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: kabelo-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kabelo
+      POSTGRES_PASSWORD: troque_esta_senha
+      POSTGRES_DB: kabelo
+    ports:
+      - "5432:5432"
+    volumes:
+      - kabelo_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kabelo -d kabelo"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  kabelo_pgdata:
