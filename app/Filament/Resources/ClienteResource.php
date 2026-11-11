@@ -25,8 +25,13 @@ class ClienteResource extends Resource
             ->schema([
             Forms\Components\TextInput::make('nome')->required(),
             Forms\Components\TextInput::make('email')->email(),
-            Forms\Components\TextInput::make('telefone')->required(),
-            Forms\Components\TextInput::make('cpf_cnpj'),
+            Forms\Components\TextInput::make('telefone')
+                ->required()
+                ->tel()
+                ->helperText('Informe DDD + número, por exemplo: (12) 99999-9999.'),
+            Forms\Components\Toggle::make('aceita_whatsapp')
+                ->label('Aceita receber lembretes por WhatsApp')
+                ->default(false),
         ]);
     }
 
@@ -37,6 +42,9 @@ class ClienteResource extends Resource
                 Tables\Columns\TextColumn::make('nome')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('email')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('telefone')->sortable()->searchable(),
+                Tables\Columns\IconColumn::make('aceita_whatsapp')
+                    ->label('WhatsApp')
+                    ->boolean(),
             ])
             ->filters([
                 //

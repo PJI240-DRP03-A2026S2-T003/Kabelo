@@ -10,5 +10,13 @@ class Cliente extends Model
         'nome',
         'email',
         'telefone',
+        'aceita_whatsapp',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'aceita_whatsapp' => 'boolean',
+        ];
+    }
 }

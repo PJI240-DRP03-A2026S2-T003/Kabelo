@@ -2,18 +2,6 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Third Party Services
-    |--------------------------------------------------------------------------
-    |
-    | This file is for storing the credentials for third party services such
-    | as Resend, Postmark, AWS, and more. This file provides the de facto
-    | location for this type of information, allowing packages to have
-    | a conventional file to locate the various service credentials.
-    |
-    */
-
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],
@@ -38,7 +26,9 @@ return [
     'whatsapp' => [
         'token' => env('WHATSAPP_TOKEN'),
         'phone_number_id' => env('WHATSAPP_PHONE_NUMBER_ID'),
-        'version' => env('WHATSAPP_API_VERSION', 'v23.0'),
+        'version' => env('WHATSAPP_API_VERSION', 'v25.0'),
+        'template_lembrete' => env('WHATSAPP_TEMPLATE_LEMBRETE', 'lembrete_agendamento'),
+        'verify_token' => env('WHATSAPP_VERIFY_TOKEN'),
     ],
 
 ];
